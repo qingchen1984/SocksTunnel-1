@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18BC421D2355E66100CCAF42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC421C2355E66100CCAF42 /* main.m */; };
+		18BC42282355E76300CCAF42 /* SOCKS5Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */; };
+		18BC42292355E76300CCAF42 /* SOCKS5ProxySocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */; };
+		8F2533FD9B14399805E98684 /* libPods-SocksTunnel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBC8A829EBB7AAECC21D90D /* libPods-SocksTunnel.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18BC42172355E66100CCAF42 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		18BC42192355E66100CCAF42 /* SocksTunnel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocksTunnel; sourceTree = BUILT_PRODUCTS_DIR; };
+		18BC421C2355E66100CCAF42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCKS5Proxy.m; sourceTree = "<group>"; };
+		18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCKS5ProxySocket.m; sourceTree = "<group>"; };
+		18BC42262355E76300CCAF42 /* SOCKS5Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCKS5Proxy.h; sourceTree = "<group>"; };
+		18BC42272355E76300CCAF42 /* SOCKS5ProxySocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCKS5ProxySocket.h; sourceTree = "<group>"; };
+		58D58CD890A05FF9062C45C0 /* Pods-SocksTunnel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocksTunnel.release.xcconfig"; path = "Target Support Files/Pods-SocksTunnel/Pods-SocksTunnel.release.xcconfig"; sourceTree = "<group>"; };
+		8BBC8A829EBB7AAECC21D90D /* libPods-SocksTunnel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocksTunnel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA2F746DA32C2F260B3C2C1 /* Pods-SocksTunnel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocksTunnel.debug.xcconfig"; path = "Target Support Files/Pods-SocksTunnel/Pods-SocksTunnel.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18BC42162355E66100CCAF42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F2533FD9B14399805E98684 /* libPods-SocksTunnel.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18BC42102355E66100CCAF42 = {
+			isa = PBXGroup;
+			children = (
+				18BC42232355E76300CCAF42 /* ProxySock */,
+				18BC421B2355E66100CCAF42 /* SocksTunnel */,
+				18BC421A2355E66100CCAF42 /* Products */,
+				790BE5D28F62E146DA3DAEC3 /* Pods */,
+				24B2C7D2286711944A4742E7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		18BC421A2355E66100CCAF42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18BC42192355E66100CCAF42 /* SocksTunnel */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18BC421B2355E66100CCAF42 /* SocksTunnel */ = {
+			isa = PBXGroup;
+			children = (
+				18BC421C2355E66100CCAF42 /* main.m */,
+			);
+			path = SocksTunnel;
+			sourceTree = "<group>";
+		};
+		18BC42232355E76300CCAF42 /* ProxySock */ = {
+			isa = PBXGroup;
+			children = (
+				18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */,
+				18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */,
+				18BC42262355E76300CCAF42 /* SOCKS5Proxy.h */,
+				18BC42272355E76300CCAF42 /* SOCKS5ProxySocket.h */,
+			);
+			path = ProxySock;
+			sourceTree = "<group>";
+		};
+		24B2C7D2286711944A4742E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BBC8A829EBB7AAECC21D90D /* libPods-SocksTunnel.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		790BE5D28F62E146DA3DAEC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEA2F746DA32C2F260B3C2C1 /* Pods-SocksTunnel.debug.xcconfig */,
+				58D58CD890A05FF9062C45C0 /* Pods-SocksTunnel.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18BC42182355E66100CCAF42 /* SocksTunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18BC42202355E66100CCAF42 /* Build configuration list for PBXNativeTarget "SocksTunnel" */;
+			buildPhases = (
+				B12A824F50798AA58F973452 /* [CP] Check Pods Manifest.lock */,
+				18BC42152355E66100CCAF42 /* Sources */,
+				18BC42162355E66100CCAF42 /* Frameworks */,
+				18BC42172355E66100CCAF42 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocksTunnel;
+			productName = SocksTunnel;
+			productReference = 18BC42192355E66100CCAF42 /* SocksTunnel */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18BC42112355E66100CCAF42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = apple;
+				TargetAttributes = {
+					18BC42182355E66100CCAF42 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 18BC42142355E66100CCAF42 /* Build configuration list for PBXProject "SocksTunnel" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18BC42102355E66100CCAF42;
+			productRefGroup = 18BC421A2355E66100CCAF42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18BC42182355E66100CCAF42 /* SocksTunnel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B12A824F50798AA58F973452 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocksTunnel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18BC42152355E66100CCAF42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18BC42282355E76300CCAF42 /* SOCKS5Proxy.m in Sources */,
+				18BC421D2355E66100CCAF42 /* main.m in Sources */,
+				18BC42292355E76300CCAF42 /* SOCKS5ProxySocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		18BC421E2355E66100CCAF42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		18BC421F2355E66100CCAF42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		18BC42212355E66100CCAF42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEA2F746DA32C2F260B3C2C1 /* Pods-SocksTunnel.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18BC42222355E66100CCAF42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58D58CD890A05FF9062C45C0 /* Pods-SocksTunnel.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18BC42142355E66100CCAF42 /* Build configuration list for PBXProject "SocksTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18BC421E2355E66100CCAF42 /* Debug */,
+				18BC421F2355E66100CCAF42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18BC42202355E66100CCAF42 /* Build configuration list for PBXNativeTarget "SocksTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18BC42212355E66100CCAF42 /* Debug */,
+				18BC42222355E66100CCAF42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18BC42112355E66100CCAF42 /* Project object */;
+}
