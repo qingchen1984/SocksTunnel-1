@@ -14,7 +14,7 @@
 
 void printUsage()
 {
-    printf("SocksTunnel host port username password local_bind_port \n");
+    printf("socksTunnel host port username password local_bind_port \n");
 }
 
 int main(int argc, const char * argv[]) {
@@ -22,14 +22,7 @@ int main(int argc, const char * argv[]) {
         
         
         if (argc == 6) {
-            
-            
-            
-            for (int i = 0; i < argc; i++) {
-                NSLog(@"argc: %s", argv[i]);
-            }
-            
-            
+
             const char *host_ = argv[1];
             const char *port_ = argv[2];
             
@@ -50,11 +43,17 @@ int main(int argc, const char * argv[]) {
             forwardServer = [[SOCKS5Proxy alloc] init];
             [forwardServer setOutgoingHost:host port:port.intValue];
             [forwardServer setOutgoingSocksUsername:username password:password];
-            [forwardServer startProxyOnPort:local.intValue];
             
-            NSLog(@"forward sever working..");
             
-            CFRunLoopRun();
+            if([forwardServer startProxyOnPort:local.intValue])
+            {
+                printf("forward sever working on local port %d ..\n", local.intValue);
+                CFRunLoopRun();
+            }
+            else{
+                printf("bind failed at port %d \n", local.intValue);
+            }
+
         }
         else{
             printUsage();

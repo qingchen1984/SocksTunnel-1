@@ -79,10 +79,10 @@
 		18BC42232355E76300CCAF42 /* ProxySock */ = {
 			isa = PBXGroup;
 			children = (
-				18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */,
-				18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */,
 				18BC42262355E76300CCAF42 /* SOCKS5Proxy.h */,
+				18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */,
 				18BC42272355E76300CCAF42 /* SOCKS5ProxySocket.h */,
+				18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */,
 			);
 			path = ProxySock;
 			sourceTree = "<group>";
