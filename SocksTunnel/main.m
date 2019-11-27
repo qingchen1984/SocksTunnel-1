@@ -14,8 +14,10 @@
 
 void printUsage()
 {
+    printf("socks 转发管道服务,用以连接本地和远程socks5\n");
     printf("参数选项说明: r 远程地址:端口, u和p 远程socks用户名及密码[可不传此项],  l 本地本址:端口\n");
     printf("例子: socksTunnel -r 3.3.3.3:2020 -l 127.0.0.1:8888 -u username -p password\n");
+    printf("---\n");
 }
 
 int main(int argc, const char * argv[]) {
@@ -41,7 +43,7 @@ int main(int argc, const char * argv[]) {
             switch (option) {
                 case 'r':
                 {
-                    printf("remote_server: %s\n", optarg);
+//                    printf("remote_server: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     NSArray *a = [tmp componentsSeparatedByString:@":"];
                     host = a.firstObject;
@@ -50,7 +52,7 @@ int main(int argc, const char * argv[]) {
                 }
                 case 'l':
                 {
-                    printf("local_bind: %s\n", optarg);
+//                    printf("local_bind: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     NSArray *a = [tmp componentsSeparatedByString:@":"];
                     localInterface = a.firstObject;
@@ -59,14 +61,14 @@ int main(int argc, const char * argv[]) {
                 }
                 case 'u':
                 {
-                    printf("username: %s\n", optarg);
+//                    printf("username: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     username = tmp;
                     break;
                 }
                 case 'p':
                 {
-                    printf("pasword: %s\n", optarg);
+//                    printf("pasword: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     password = tmp;
                     break;
