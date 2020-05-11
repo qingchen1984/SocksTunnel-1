@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
             switch (option) {
                 case 'r':
                 {
-//                    printf("remote_server: %s\n", optarg);
+                    printf("remote_server: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     NSArray *a = [tmp componentsSeparatedByString:@":"];
                     host = a.firstObject;
@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]) {
                 }
                 case 'l':
                 {
-//                    printf("local_bind: %s\n", optarg);
+                    printf("local_bind: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     NSArray *a = [tmp componentsSeparatedByString:@":"];
                     localInterface = a.firstObject;
@@ -61,14 +61,14 @@ int main(int argc, const char * argv[]) {
                 }
                 case 'u':
                 {
-//                    printf("username: %s\n", optarg);
+                    printf("username: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     username = tmp;
                     break;
                 }
                 case 'p':
                 {
-//                    printf("pasword: %s\n", optarg);
+                    printf("pasword: %s\n", optarg);
                     NSString *tmp = [NSString stringWithUTF8String:optarg];
                     password = tmp;
                     break;
@@ -85,7 +85,7 @@ int main(int argc, const char * argv[]) {
         SOCKS5Proxy *forwardServer;
         forwardServer = [[SOCKS5Proxy alloc] init];
         [forwardServer setOutgoingHost:host port:port.intValue];
-        if (username && password) {
+        if (username.length > 0 && password.length > 0) {
             [forwardServer setOutgoingSocksUsername:username password:password];
         }
         
@@ -97,7 +97,14 @@ int main(int argc, const char * argv[]) {
             CFRunLoopRun();
         }
         else{
-            printf("bind failed at port %d \n", uport);
+            printf("bind failed at port %d.\n", uport);
+            char *p = "sadf";
+            if (getchar() == 0) {
+                p = 0;
+            }
+            
+            char *cc = p;
+            printf("%s, %s.", cc, p);
         }
         
         return 0;

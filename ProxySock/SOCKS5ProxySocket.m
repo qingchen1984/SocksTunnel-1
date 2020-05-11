@@ -6,11 +6,14 @@
 //  Copyright (c) 2013 Christopher Ballinger. All rights reserved.
 //
 
+#import "NSData+HexString.h"
+
 // Define various socket tags
 #define SOCKS_OPEN             20100
 #define SOCKS_CONNECT_AUTH_INIT     20101
 #define SOCKS_CONNECT_AUTH_USERNAME     20102
 #define SOCKS_CONNECT_AUTH_PASSWORD     20103
+#define SOCKS_OPEN0             20104
 
 #define SOCKS_CONNECT_INIT     20200
 #define SOCKS_CONNECT_IPv4     20201
@@ -35,9 +38,9 @@
 //#import "NSData+HexString.h"
 
 #if DEBUG
-static const int ddLogLevel = DDLogLevelVerbose;
+static const int ddLogLevel = DDLogLevelAll;
 #else
-static const int ddLogLevel = DDLogLevelOff;
+static const int ddLogLevel = DDLogLevelAll;
 #endif
 #include <arpa/inet.h>
 
@@ -58,6 +61,9 @@ static const int ddLogLevel = DDLogLevelOff;
 
 - (id) initWithSocket:(GCDAsyncSocket *)socket delegate:(id<SOCKS5ProxySocketDelegate>)delegate {
     if (self = [super init]) {
+        
+        [DDLog addLogger:[DDOSLogger sharedInstance]]; // Uses os_log
+        
         _delegate = delegate;
         self.delegateQueue = dispatch_queue_create("SOCKS5ProxySocket socket delegate queue", 0);
         self.callbackQueue = dispatch_queue_create("SOCKS5ProxySocket callback queue", 0);
@@ -79,8 +85,17 @@ static const int ddLogLevel = DDLogLevelOff;
 
 - (void) socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     
+    NSLog(@"didReadData: %@ %@", sock, data.hexString);
     
-    if (tag == SOCKS_OPEN) {
+    if (tag == SOCKS_OPEN0) {
+        uint8_t *bytes = (uint8_t*)data.bytes;
+        uint8_t version = bytes[0];
+        uint8_t methodsLength = bytes[1];
+        if (version == 5) {
+            [sock readDataToLength:methodsLength withTimeout:-1 tag:SOCKS_OPEN];
+        }
+    }
+    else if (tag == SOCKS_OPEN) {
         /*
          The initial greeting from the client is
          
@@ -88,39 +103,45 @@ static const int ddLogLevel = DDLogLevelOff;
          field 2: number of authentication methods supported, 1 byte
          field 3: authentication methods, variable length, 1 byte per method supported
          */
-        if (data.length >= 3) {
-            uint8_t *bytes = (uint8_t*)data.bytes;
-            //uint8_t version = bytes[0];
-            //uint8_t methodsLength = bytes[1];
-            // We only bother checking the first supported method
-            uint8_t firstSupportedMethod = bytes[2];
-            uint8_t supportedMethod = 0x00;
-            if (firstSupportedMethod == 0x02) { // Password auth
-                supportedMethod = firstSupportedMethod;
-            }
-            //      +-----+--------+
-            // NAME | VER | METHOD |
-            //      +-----+--------+
-            // SIZE |  1  |   1    |
-            //      +-----+--------+
-            //
-            // Note: Size is in bytes
-            //
-            // Version = 5 (for SOCKS5)
-            // Method  = 0 (No authentication, anonymous access)
-            NSUInteger responseLength = 2;
-            uint8_t *responseBytes = malloc(responseLength * sizeof(uint8_t));
-            responseBytes[0] = 5; // VER = SOCKS5
-            responseBytes[1] = supportedMethod;
-            NSData *responseData = [NSData dataWithBytesNoCopy:responseBytes length:responseLength freeWhenDone:YES];
-            [sock writeData:responseData withTimeout:-1 tag:SOCKS_OPEN];
-            if (supportedMethod == 0x00) {
-                [sock readDataToLength:4 withTimeout:TIMEOUT_CONNECT tag:SOCKS_CONNECT_INIT];
-            } else if (supportedMethod == 0x02) {
-                // read first 2 bytes of socks auth
-                [sock readDataToLength:2 withTimeout:-1 tag:SOCKS_CONNECT_AUTH_INIT];
-            }
+        uint8_t *bytes = (uint8_t*)data.bytes;
+        //uint8_t version = bytes[0];
+        //uint8_t methodsLength = bytes[1];
+        // We only bother checking the first supported method
+        
+        bytes += 2;//by lg
+        
+        uint8_t firstSupportedMethod = bytes[2];
+        uint8_t supportedMethod = 0x00;
+        if (firstSupportedMethod == 0x02) { // Password auth
+            supportedMethod = firstSupportedMethod;
         }
+        //      +-----+--------+
+        // NAME | VER | METHOD |
+        //      +-----+--------+
+        // SIZE |  1  |   1    |
+        //      +-----+--------+
+        //
+        // Note: Size is in bytes
+        //
+        // Version = 5 (for SOCKS5)
+        // Method  = 0 (No authentication, anonymous access)
+        NSUInteger responseLength = 2;
+        uint8_t *responseBytes = malloc(responseLength * sizeof(uint8_t));
+        responseBytes[0] = 5; // VER = SOCKS5
+        responseBytes[1] = supportedMethod;
+        //            responseBytes[1] = 0x2;
+        NSData *responseData = [NSData dataWithBytesNoCopy:responseBytes length:responseLength freeWhenDone:YES];
+        [sock writeData:responseData withTimeout:-1 tag:SOCKS_OPEN];
+        
+        
+        if (supportedMethod == 0x00) {
+            [sock readDataToLength:4 withTimeout:TIMEOUT_CONNECT tag:SOCKS_CONNECT_INIT];
+        } else if (supportedMethod == 0x02) {
+            // read first 2 bytes of socks auth
+            [sock readDataToLength:2 withTimeout:-1 tag:SOCKS_CONNECT_AUTH_INIT];
+        }
+        
+        
     } else if (tag == SOCKS_CONNECT_AUTH_INIT) {
         // We don't actually bother checking user/pass
         /*
@@ -278,7 +299,8 @@ static const int ddLogLevel = DDLogLevelOff;
 	// Version    = 5 (for SOCKS5)
 	// NumMethods = 1
 	// Method     = 0 (No authentication, anonymous access)
-    [self.proxySocket readDataToLength:3 withTimeout:TIMEOUT_CONNECT tag:SOCKS_OPEN];
+    
+    [self.proxySocket readDataToLength:2 withTimeout:TIMEOUT_CONNECT tag:SOCKS_OPEN0];
 }
 
 - (void) socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {

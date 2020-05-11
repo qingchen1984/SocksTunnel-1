@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1851DA242468F69A00E2B9D7 /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851DA222468F69900E2B9D7 /* NSData+HexString.m */; };
 		18BC421D2355E66100CCAF42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC421C2355E66100CCAF42 /* main.m */; };
 		18BC42282355E76300CCAF42 /* SOCKS5Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */; };
 		18BC42292355E76300CCAF42 /* SOCKS5ProxySocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1851DA222468F69900E2B9D7 /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
+		1851DA232468F69A00E2B9D7 /* NSData+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+HexString.h"; sourceTree = "<group>"; };
 		18BC42192355E66100CCAF42 /* SocksTunnel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocksTunnel; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC421C2355E66100CCAF42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCKS5Proxy.m; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 				18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */,
 				18BC42272355E76300CCAF42 /* SOCKS5ProxySocket.h */,
 				18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */,
+				1851DA232468F69A00E2B9D7 /* NSData+HexString.h */,
+				1851DA222468F69900E2B9D7 /* NSData+HexString.m */,
 			);
 			path = ProxySock;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				18BC42282355E76300CCAF42 /* SOCKS5Proxy.m in Sources */,
 				18BC421D2355E66100CCAF42 /* main.m in Sources */,
 				18BC42292355E76300CCAF42 /* SOCKS5ProxySocket.m in Sources */,
+				1851DA242468F69A00E2B9D7 /* NSData+HexString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

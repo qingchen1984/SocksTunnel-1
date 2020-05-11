@@ -52,19 +52,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-r 106.75.231.14:3080"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-l 0.0.0.0:9999"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-p woaini2020"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-u woaini"
+            argument = "-r 182.85.157.186:65001 -u wl219cs100t1m -p wl219cs100t1m -l 127.0.0.1:6623"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
