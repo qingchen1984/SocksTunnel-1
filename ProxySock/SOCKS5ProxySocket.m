@@ -62,7 +62,7 @@ static const int ddLogLevel = DDLogLevelAll;
 - (id) initWithSocket:(GCDAsyncSocket *)socket delegate:(id<SOCKS5ProxySocketDelegate>)delegate {
     if (self = [super init]) {
         
-        [DDLog addLogger:[DDOSLogger sharedInstance]]; // Uses os_log
+//        [DDLog addLogger:[DDOSLogger sharedInstance]]; // Uses os_log
         
         _delegate = delegate;
         self.delegateQueue = dispatch_queue_create("SOCKS5ProxySocket socket delegate queue", 0);
@@ -85,7 +85,7 @@ static const int ddLogLevel = DDLogLevelAll;
 
 - (void) socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     
-    NSLog(@"didReadData: %@ %@", sock, data.hexString);
+//    NSLog(@"didReadData: %@ %@", sock, data.hexString);
     
     if (tag == SOCKS_OPEN0) {
         uint8_t *bytes = (uint8_t*)data.bytes;
@@ -245,8 +245,10 @@ static const int ddLogLevel = DDLogLevelAll;
         [self.outgoingSocket setProxyHost:self.outgoingHost port:self.outgoingPort version: GCDAsyncSocketSOCKSVersion5];
         [self.outgoingSocket setProxyUsername:self.outgoingUsername password:self.outgoingPassword];
         [self.outgoingSocket connectToHost:self.destinationHost onPort:self.destinationPort error:&error];
-    } else if (tag == SOCKS_INCOMING_READ) {
         
+        printf("connect: %s:%u\n", self.destinationHost.UTF8String, self.destinationPort);
+        
+    } else if (tag == SOCKS_INCOMING_READ) {
 
         
         [self.outgoingSocket writeData:data withTimeout:-1 tag:SOCKS_OUTGOING_WRITE];
