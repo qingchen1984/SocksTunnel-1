@@ -1,9 +1,10 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+source 'https://cdn.cocoapods.org/'
+
 target 'SocksTunnel' do
     pod 'CocoaAsyncSocket'
     pod 'ProxyKit'
 end
 
-source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'

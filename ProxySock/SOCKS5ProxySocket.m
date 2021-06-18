@@ -244,9 +244,10 @@ static const int ddLogLevel = DDLogLevelAll;
         
         [self.outgoingSocket setProxyHost:self.outgoingHost port:self.outgoingPort version: GCDAsyncSocketSOCKSVersion5];
         [self.outgoingSocket setProxyUsername:self.outgoingUsername password:self.outgoingPassword];
+        
         [self.outgoingSocket connectToHost:self.destinationHost onPort:self.destinationPort error:&error];
         
-        printf("connect: %s:%u\n", self.destinationHost.UTF8String, self.destinationPort);
+        printf("connect: %s:%u\n", self.outgoingHost.UTF8String, self.outgoingPort);
         
     } else if (tag == SOCKS_INCOMING_READ) {
 
@@ -306,11 +307,24 @@ static const int ddLogLevel = DDLogLevelAll;
 }
 
 - (void) socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
+    
+    NSLog(@"%@", err);
+
     if (self.delegate && [self.delegate respondsToSelector:@selector(proxySocketDidDisconnect:withError:)]) {
         dispatch_async(self.callbackQueue, ^{
             [self.delegate proxySocketDidDisconnect:self withError:err];
         });
     }
+    
+    if (sock == self.outgoingSocket) {
+        NSLog(@"outgoing socket closed, force disconnect proxy client now!");
+//        [self.proxySocket disconnect];
+    }else if(sock == self.proxySocket)
+    {
+        NSLog(@"proxy socket closed, force disconnect outgoin now!");
+//        [self.outgoingSocket disconnect];
+    }
+    
 }
 
 - (void) socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
@@ -333,6 +347,8 @@ static const int ddLogLevel = DDLogLevelAll;
     NSUInteger portLength = 2;
 	memcpy(responseBytes+5+hostLength, &bigEndianPort, portLength);
     NSData *responseData = [NSData dataWithBytesNoCopy:responseBytes length:responseLength freeWhenDone:YES];
+    
+    NSLog(@"%@", responseData.debugDescription);
     [self.proxySocket writeData:responseData withTimeout:-1 tag:SOCKS_CONNECT_REPLY];
     [self.proxySocket readDataWithTimeout:-1 tag:SOCKS_INCOMING_READ];
 }

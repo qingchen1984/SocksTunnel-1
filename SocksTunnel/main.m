@@ -10,7 +10,8 @@
 #import <GCDAsyncSocket.h>
 #import <GCDAsyncProxySocket.h>
 #import "SOCKS5Proxy.h"
-
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import <CocoaLumberjack/DDOSLogger.h>
 
 void printUsage()
 {
@@ -22,6 +23,8 @@ void printUsage()
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        [DDLog addLogger:[DDOSLogger sharedInstance]];
         
         printUsage();
         
