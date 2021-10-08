@@ -5,6 +5,6 @@ source 'https://cdn.cocoapods.org/'
 
 target 'SocksTunnel' do
     pod 'CocoaAsyncSocket'
-    pod 'ProxyKit'
+    pod 'CocoaLumberjack'
 end
 

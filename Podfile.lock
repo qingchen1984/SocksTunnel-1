@@ -1,36 +1,22 @@
 PODS:
-  - CocoaAsyncSocket (7.6.4)
-  - CocoaLumberjack (3.6.2):
-    - CocoaLumberjack/Core (= 3.6.2)
-  - CocoaLumberjack/Core (3.6.2)
-  - ProxyKit (1.2.0):
-    - ProxyKit/standard (= 1.2.0)
-  - ProxyKit/Client (1.2.0):
-    - ProxyKit/common
-  - ProxyKit/common (1.2.0):
-    - CocoaAsyncSocket (~> 7.6)
-    - CocoaLumberjack
-  - ProxyKit/Server (1.2.0):
-    - ProxyKit/common
-  - ProxyKit/standard (1.2.0):
-    - ProxyKit/Client
-    - ProxyKit/Server
+  - CocoaAsyncSocket (7.6.5)
+  - CocoaLumberjack (3.7.2):
+    - CocoaLumberjack/Core (= 3.7.2)
+  - CocoaLumberjack/Core (3.7.2)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
-  - ProxyKit
+  - CocoaLumberjack
 
 SPEC REPOS:
   trunk:
     - CocoaAsyncSocket
     - CocoaLumberjack
-    - ProxyKit
 
 SPEC CHECKSUMS:
-  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
-  CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
-  ProxyKit: ae9ed36909d0e68b27087eb3ed5aa35c86f8bff0
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
 
-PODFILE CHECKSUM: 8dab58a983d36e216c09162dd49d631440899e38
+PODFILE CHECKSUM: 6ea0af3541d05bc73c2fad4281e155b8c3d1d2eb
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

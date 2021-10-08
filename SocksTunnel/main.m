@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <GCDAsyncSocket.h>
-#import <GCDAsyncProxySocket.h>
+#import "GCDAsyncProxySocket.h"
 #import "SOCKS5Proxy.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <CocoaLumberjack/DDOSLogger.h>

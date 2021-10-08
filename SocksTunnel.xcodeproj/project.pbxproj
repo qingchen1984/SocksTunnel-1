@@ -12,6 +12,9 @@
 		18BC42282355E76300CCAF42 /* SOCKS5Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC42242355E76300CCAF42 /* SOCKS5Proxy.m */; };
 		18BC42292355E76300CCAF42 /* SOCKS5ProxySocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC42252355E76300CCAF42 /* SOCKS5ProxySocket.m */; };
 		8F2533FD9B14399805E98684 /* libPods-SocksTunnel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBC8A829EBB7AAECC21D90D /* libPods-SocksTunnel.a */; };
+		C777848727105B1100542A23 /* SOCKSProxySocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C777848227105B1100542A23 /* SOCKSProxySocket.m */; };
+		C777848827105B1100542A23 /* SOCKSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C777848327105B1100542A23 /* SOCKSProxy.m */; };
+		C777848927105B1100542A23 /* GCDAsyncProxySocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C777848527105B1100542A23 /* GCDAsyncProxySocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +41,12 @@
 		58D58CD890A05FF9062C45C0 /* Pods-SocksTunnel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocksTunnel.release.xcconfig"; path = "Target Support Files/Pods-SocksTunnel/Pods-SocksTunnel.release.xcconfig"; sourceTree = "<group>"; };
 		8BBC8A829EBB7AAECC21D90D /* libPods-SocksTunnel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocksTunnel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA2F746DA32C2F260B3C2C1 /* Pods-SocksTunnel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocksTunnel.debug.xcconfig"; path = "Target Support Files/Pods-SocksTunnel/Pods-SocksTunnel.debug.xcconfig"; sourceTree = "<group>"; };
+		C777848027105B1100542A23 /* SOCKSProxySocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCKSProxySocket.h; sourceTree = "<group>"; };
+		C777848127105B1100542A23 /* SOCKSProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCKSProxy.h; sourceTree = "<group>"; };
+		C777848227105B1100542A23 /* SOCKSProxySocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCKSProxySocket.m; sourceTree = "<group>"; };
+		C777848327105B1100542A23 /* SOCKSProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCKSProxy.m; sourceTree = "<group>"; };
+		C777848527105B1100542A23 /* GCDAsyncProxySocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncProxySocket.m; sourceTree = "<group>"; };
+		C777848627105B1100542A23 /* GCDAsyncProxySocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncProxySocket.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +64,7 @@
 		18BC42102355E66100CCAF42 = {
 			isa = PBXGroup;
 			children = (
+				C777847E27105B1100542A23 /* ProxyKit */,
 				18BC42232355E76300CCAF42 /* ProxySock */,
 				18BC421B2355E66100CCAF42 /* SocksTunnel */,
 				18BC421A2355E66100CCAF42 /* Products */,
@@ -107,6 +117,35 @@
 				58D58CD890A05FF9062C45C0 /* Pods-SocksTunnel.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C777847E27105B1100542A23 /* ProxyKit */ = {
+			isa = PBXGroup;
+			children = (
+				C777847F27105B1100542A23 /* Server */,
+				C777848427105B1100542A23 /* Client */,
+			);
+			path = ProxyKit;
+			sourceTree = "<group>";
+		};
+		C777847F27105B1100542A23 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				C777848127105B1100542A23 /* SOCKSProxy.h */,
+				C777848327105B1100542A23 /* SOCKSProxy.m */,
+				C777848027105B1100542A23 /* SOCKSProxySocket.h */,
+				C777848227105B1100542A23 /* SOCKSProxySocket.m */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		C777848427105B1100542A23 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				C777848527105B1100542A23 /* GCDAsyncProxySocket.m */,
+				C777848627105B1100542A23 /* GCDAsyncProxySocket.h */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +232,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BC42282355E76300CCAF42 /* SOCKS5Proxy.m in Sources */,
+				C777848727105B1100542A23 /* SOCKSProxySocket.m in Sources */,
+				C777848827105B1100542A23 /* SOCKSProxy.m in Sources */,
+				C777848927105B1100542A23 /* GCDAsyncProxySocket.m in Sources */,
 				18BC421D2355E66100CCAF42 /* main.m in Sources */,
 				18BC42292355E76300CCAF42 /* SOCKS5ProxySocket.m in Sources */,
 				1851DA242468F69A00E2B9D7 /* NSData+HexString.m in Sources */,
